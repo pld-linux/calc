@@ -1,8 +1,8 @@
 Summary:	Arbitrary precision calculator
 Summary(pl):	Kalkulator operuj±cy na liczbach z dowoln± dok³adno¶ci±
 Name:		calc
-Version:	2.11.2t1.0
-Release:	2
+Version:	2.11.5t3
+Release:	1
 License:	GPL
 Group:		Applications/Math
 Group(de):	Applikationen/Mathematik
