@@ -91,7 +91,6 @@ rm -f $RPM_BUILD_ROOT%{_datadir}/calc/README
 find $RPM_BUILD_ROOT%{_datadir}/calc -type f | \
 	xargs perl -pi -e 's|#!/usr/local/bin/calc|#!%{_bindir}/calc|'
 
-gzip -9nf BUGS CHANGES README README-cal LIBRARY sample/README_SAMPLE
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -106,7 +105,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/*
-%doc sample/*
+%doc BUGS CHANGES README README-cal LIBRARY sample/README_SAMPLE
 
 %files static
 %defattr(644,root,root,755)
