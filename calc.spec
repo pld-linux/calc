@@ -43,7 +43,7 @@ Summary:	Calc static libraries
 Summary(pl):	Biblioteki statyczne Calca
 Group:		Development/Libraries
 Group(pl):	Programowanie/Biblioteki
-Requires:	%{name}-devl = %{version}
+Requires:	%{name}-devel = %{version}
 
 %description static
 Libraries containing a set of Calc functions to use in other applications.
