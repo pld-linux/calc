@@ -93,12 +93,12 @@ find $RPM_BUILD_ROOT%{_datadir}/calc -type f | \
 
 gzip -9nf BUGS CHANGES README README-cal LIBRARY sample/README_SAMPLE
 
-%clean 
+%clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz 
+%doc *.gz
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/calc
 %{_mandir}/man*/*
