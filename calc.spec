@@ -31,7 +31,7 @@ Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
-Requires:	calc = %{version}
+Requires:	%{name} = %{version}
 
 %description devel
 These header files are neccessary to build programs using Calc math
