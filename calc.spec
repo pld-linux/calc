@@ -2,11 +2,20 @@ Summary:	Arbitrary precision calculator
 Summary(pl):	Kalkulator operuj±cy na liczbach z dowoln± dok³adno¶ci±
 Name:		calc
 Version:	2.11.5t3
-Release:	1
-License:	GPL
+Release:	2
+License:	LGPL
 Group:		Applications/Math
+Group(cs):	Aplikace/Matematické
+Group(da):	Programmer/Matematik
 Group(de):	Applikationen/Mathematik
+Group(es):	Aplicaciones/Matemáticas
+Group(fr):	Applications/Mathématiques
+Group(it):	Applicazioni/Matematiche
+Group(no):	Applikasjoner/Matematiske
 Group(pl):	Aplikacje/Matematyczne
+Group(pt):	Aplicações/Matemática
+Group(ru):	ğÒÉÌÏÖÅÎÉÑ/íÁÔÅÍÁÔÉŞÅÓËÉÅ
+Group(sv):	Tillämpningar/Matemataisk
 Source0:	ftp://ftp.uu.net/pub/calc/%{name}-%{version}.tar.gz
 BuildRequires:	readline-devel >= 4.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -28,12 +37,19 @@ matematycznych, programistycznych i funkcji wej¶cia/wyj¶cia
 Summary:	Calc header files
 Summary(pl):	Pliki nag³ówkowe Calca
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
+Group(cs):	Vıvojové prostøedky/Knihovny
+Group(da):	Udvikling/Biblioteker
+Group(de):	Entwicklung/Bibliotheken
 Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
+Group(it):	Sviluppo/Librerie
+Group(ja):	³«È¯/¥é¥¤¥Ö¥é¥ê
+Group(no):	Utvikling/Bibliotek
 Group(pl):	Programowanie/Biblioteki
 Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(pt):	Desenvolvimento/Bibliotecas
 Group(ru):	òÁÚÒÁÂÏÔËÁ/âÉÂÌÉÏÔÅËÉ
+Group(sv):	Utveckling/Bibliotek
 Group(uk):	òÏÚÒÏÂËÁ/â¦ÂÌ¦ÏÔÅËÉ
 Requires:	%{name} = %{version}
 
@@ -49,12 +65,19 @@ wykorzystuj±cych biblioteki matematyczne Calca.
 Summary:	Calc static libraries
 Summary(pl):	Biblioteki statyczne Calca
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
+Group(cs):	Vıvojové prostøedky/Knihovny
+Group(da):	Udvikling/Biblioteker
+Group(de):	Entwicklung/Bibliotheken
 Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
+Group(it):	Sviluppo/Librerie
+Group(ja):	³«È¯/¥é¥¤¥Ö¥é¥ê
+Group(no):	Utvikling/Bibliotek
 Group(pl):	Programowanie/Biblioteki
 Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(pt):	Desenvolvimento/Bibliotecas
 Group(ru):	òÁÚÒÁÂÏÔËÁ/âÉÂÌÉÏÔÅËÉ
+Group(sv):	Utveckling/Bibliotek
 Group(uk):	òÏÚÒÏÂËÁ/â¦ÂÌ¦ÏÔÅËÉ
 Requires:	%{name}-devel = %{version}
 
