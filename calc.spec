@@ -60,7 +60,7 @@ programach.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/calc/{cscript,custom,help} \
 	$RPM_BUILD_ROOT{%{_includedir},%{_mandir}/man1,%{_libdir}} \
-	$RPM_BUILD_ROOT{%{_bindir},%{_applnkdir}/Scientific/Numerics}
+	$RPM_BUILD_ROOT{%{_bindir},%{_desktopdir}}
 
 %{__make} install \
 	T=$RPM_BUILD_ROOT \
@@ -69,7 +69,7 @@ install -d $RPM_BUILD_ROOT%{_datadir}/calc/{cscript,custom,help} \
 mv -f $RPM_BUILD_ROOT%{_datadir}/calc/custom/libcustcalc.a $RPM_BUILD_ROOT%{_libdir}
 mv -f cal/README README.cal
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Scientific/Numerics/%{name}.desktop
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/%{name}.desktop
 
 rm -f $RPM_BUILD_ROOT%{_datadir}/calc/README
 
@@ -86,7 +86,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/calc
 %{_mandir}/man*/*
-%{_applnkdir}/Scientific/Numerics/*
+%{_desktopdir}/*
 
 %files devel
 %defattr(644,root,root,755)
