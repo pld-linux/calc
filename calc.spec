@@ -90,13 +90,15 @@ make install \
 mv $RPM_BUILD_ROOT%{_datadir}/calc{/,/custom}/*.a $RPM_BUILD_ROOT%{_libdir}
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man*/* \
-	BUGS CHANGES README LIBRARY
+	BUGS CHANGES README LIBRARY sample/README \
+	$RPM_BUILD_ROOT%{_datadir}/calc/README
 
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/calc
 %{_mandir}/man*/*
+%doc *.gz 
 
 %files static
 %defattr(644,root,root,755)
@@ -105,6 +107,7 @@ gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man*/* \
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/*
+%doc sample/*
 
 %clean 
 rm -rf $RPM_BUILD_ROOT
