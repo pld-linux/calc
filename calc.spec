@@ -2,10 +2,11 @@ Summary:	Arbitrary precision calculator
 Summary(pl):	Kalkulator operuj±cy na liczbach z dowoln± dok³adno¶ci±
 Name:		calc
 Version:	2.11.5t3
-Release:	3
+Release:	4
 License:	LGPL
 Group:		Applications/Math
 Source0:	ftp://ftp.uu.net/pub/calc/%{name}-%{version}.tar.gz
+Source1:	%{name}.desktop
 BuildRequires:	readline-devel >= 4.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -71,7 +72,7 @@ w³asnych programach.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/calc/{cscript,custom,help} \
 	$RPM_BUILD_ROOT{%{_includedir},%{_mandir}/man1,%{_libdir}} \
-	$RPM_BUILD_ROOT%{_bindir}
+	$RPM_BUILD_ROOT{%{_bindir},%{_applnkdir}/Scientific/Numerics}
 
 %{__make} install \
 	BINDIR=$RPM_BUILD_ROOT%{_bindir} \
@@ -86,6 +87,8 @@ install -d $RPM_BUILD_ROOT%{_datadir}/calc/{cscript,custom,help} \
 mv -f $RPM_BUILD_ROOT%{_datadir}/calc{/,/custom}/*.a $RPM_BUILD_ROOT%{_libdir}
 mv -f cal/README README-cal
 
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Scientific/Numerics/%{name}.desktop
+
 rm -f $RPM_BUILD_ROOT%{_datadir}/calc/README
 
 find $RPM_BUILD_ROOT%{_datadir}/calc -type f | \
@@ -99,6 +102,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/calc
 %{_mandir}/man*/*
+%{_applnkdir}/Scientific/Numerics/*
 
 %files devel
 %defattr(644,root,root,755)
