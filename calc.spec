@@ -96,6 +96,9 @@ mv -f cal/README README-cal
 
 rm -f $RPM_BUILD_ROOT%{_datadir}/calc/README
 
+find -type f $RPM_BUILD_ROOT%{_datadir}/calc | \
+	xargs perl -pi -e '|#!/usr/local/bin/calc|#!/usr/bin/calc|'
+
 gzip -9nf BUGS CHANGES README README-cal LIBRARY sample/README_SAMPLE
 
 %clean 
