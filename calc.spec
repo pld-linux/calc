@@ -8,7 +8,7 @@ Group:		Applications/Math
 Group(pl):	Aplikacje/Matematyczne
 Source0:	ftp://ftp.uu.net/pub/calc/%{name}-%{version}.tar.gz
 BuildRequires:	readline-devel >= 4.1
-Buildroot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Calc is arbitrary precision arithmetic system that uses a C-like language.
