@@ -71,7 +71,7 @@ make CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_datadir}/calc/{cscript,custom,help}} \
+install -d $RPM_BUILD_ROOT%{_datadir}/calc/{cscript,custom,help} \
 	$RPM_BUILD_ROOT{%{_includedir},%{_mandir}/man1,%{_libdir}} \
 	$RPM_BUILD_ROOT%{_bindir}
 
@@ -88,7 +88,7 @@ make install \
 mv $RPM_BUILD_ROOT%{_datadir}/calc{/,/custom}/*.a $RPM_BUILD_ROOT%{_libdir}
 mv cal/README README-cal
 
-rm $RPM_BUILD_ROOT%{_datadir}/calc/README
+rm -f $RPM_BUILD_ROOT%{_datadir}/calc/README
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man*/* \
 	BUGS CHANGES README README-cal LIBRARY sample/README_SAMPLE
