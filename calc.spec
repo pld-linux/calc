@@ -7,7 +7,6 @@ License:	GPL
 Group:		Applications/Math
 Group(pl):	Aplikacje/Matematyczne
 Source0:	ftp://ftp.uu.net/pub/calc/%{name}-%{version}.tar.gz
-Requires:	readline
 BuildRequires:	readline-devel
 Buildroot:	/tmp/%{name}-%{version}-root
 
@@ -44,11 +43,10 @@ Summary:	Calc static libraries
 Summary(pl):	Biblioteki statyczne Calca
 Group:		Development/Libraries
 Group(pl):	Programowanie/Biblioteki
-Requires:	calc = %{version}
-Requires:	calc-devel = %{version}
+Requires:	%{name}-devl = %{version}
 
 %description static
-Libraries containing a set of Calc functions to use in other applications
+Libraries containing a set of Calc functions to use in other applications.
 
 %description static -l pl
 Biblioteki zawieraj±ce komplet funkcji Calca do wykorzystania we w³asnych
@@ -88,26 +86,27 @@ make install \
 	SCRIPTDIR=$RPM_BUILD_ROOT%{_datadir}/calc/cscript
 
 mv $RPM_BUILD_ROOT%{_datadir}/calc{/,/custom}/*.a $RPM_BUILD_ROOT%{_libdir}
+mv cal/README README-cal
+
+rm $RPM_BUILD_ROOT%{_datadir}/calc/README
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man*/* \
-	BUGS CHANGES README LIBRARY sample/README \
-	$RPM_BUILD_ROOT%{_datadir}/calc/README
+	BUGS CHANGES README README-cal LIBRARY sample/README_SAMPLE
+
+%clean 
+rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc *.gz 
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/calc
 %{_mandir}/man*/*
-%doc *.gz 
-
-%files static
-%defattr(644,root,root,755)
-%{_libdir}/*
 
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/*
 %doc sample/*
 
-%clean 
-rm -rf $RPM_BUILD_ROOT
+%files static
+%attr(644,root,root) %{_libdir}/*
