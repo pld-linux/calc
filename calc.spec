@@ -6,6 +6,7 @@ Release:	4
 License:	LGPL
 Group:		Applications/Math
 Source0:	ftp://ftp.uu.net/pub/calc/%{name}-%{version}.tar.gz
+# Source0-md5:	792349fd4c11a4d51cd5469bad9f262a
 Source1:	%{name}.desktop
 BuildRequires:	readline-devel >= 4.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
