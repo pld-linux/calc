@@ -1,12 +1,12 @@
 Summary:	Arbitrary precision calculator
 Summary(pl):	Kalkulator operuj±cy na liczbach z dowoln± dok³adno¶ci±
 Name:		calc
-Version:	2.11.9.3
+Version:	2.11.10
 Release:	1
 License:	LGPL
 Group:		Applications/Math
 Source0:	http://www.isthe.com/chongo/src/calc/%{name}-%{version}.tar.gz
-# Source0-md5:	3c431b681b572bf156a57d21f53eb7c0
+# Source0-md5:	3b511cf8f9f3d8e608517fc5cf82acfa
 Source1:	%{name}.desktop
 URL:		http://www.isthe.com/chongo/tech/comp/calc/
 BuildRequires:	readline-devel >= 4.2
@@ -49,7 +49,7 @@ programach.
 %setup -q
 
 %build
-%{__make} \
+%{__make} -j1 \
 	DEBUG="%{rpmcflags}" \
 	USE_READLINE=-DUSE_READLINE \
 	READLINE_LIB="-lreadline -lhistory" \
