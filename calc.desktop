@@ -5,6 +5,7 @@ Comment[pl]=Kalkulator nieskończonej precyzji ze składnią podobną do C
 Icon=
 Exec=calc
 Terminal=true
+Categories=Education;Science;Math;
 Type=Application
 Encoding=UTF-8
 # vi: encoding=utf-8
