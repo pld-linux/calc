@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Calc
+Comment=Infinite precision calculator with C-like syntax
+Comment[pl]=Kalkulator nieskończonej precyzji ze składnią podobną do C
+Icon=
+Exec=calc
+Terminal=1
+Type=Application
+# vi: encoding=utf-8
