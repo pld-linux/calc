@@ -11,22 +11,23 @@ BuildRequires:	readline-devel >= 4.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Calc is arbitrary precision arithmetic system that uses a C-like language.
-Calc is useful as a calculator, an algorithm prototyped and as a
-mathematical research tool. It comes with a rich set of mathematical,
-programmatic and stdio functions.
+Calc is arbitrary precision arithmetic system that uses a C-like
+language. Calc is useful as a calculator, an algorithm prototyped and
+as a mathematical research tool. It comes with a rich set of
+mathematical, programmatic and stdio functions.
 
 %description -l pl
-Calc jest systemem arytmetycznym o nieograniczonej dok³adno¶ci, u¿ywaj±cym
-jêzyka podobnego do C. Calc jest przydatny jako kalkulator, narzêdzie do
-testowania algorytmów i do badañ matematycznych. Do samego programu
-do³±czony jest bogaty zestaw funkcji bibliotecznych - matematycznych,
-programistycznych i funkcji wej¶cia/wyj¶cia
+Calc jest systemem arytmetycznym o nieograniczonej dok³adno¶ci,
+u¿ywaj±cym jêzyka podobnego do C. Calc jest przydatny jako kalkulator,
+narzêdzie do testowania algorytmów i do badañ matematycznych. Do
+samego programu do³±czony jest bogaty zestaw funkcji bibliotecznych -
+matematycznych, programistycznych i funkcji wej¶cia/wyj¶cia
 
 %package devel
 Summary:	Calc header files
 Summary(pl):	Pliki nag³ówkowe Calca
 Group:		Development/Libraries
+Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	calc = %{version}
 
@@ -35,22 +36,24 @@ These header files are neccessary to build programs using Calc math
 libraries.
 
 %description devel -l pl
-Te pliki nag³ówkowe s± niezbêdne przy budowaniu programów wykorzystuj±cych
-biblioteki matematyczne Calca.
+Te pliki nag³ówkowe s± niezbêdne przy budowaniu programów
+wykorzystuj±cych biblioteki matematyczne Calca.
 
 %package static
 Summary:	Calc static libraries
 Summary(pl):	Biblioteki statyczne Calca
 Group:		Development/Libraries
+Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
 
 %description static
-Libraries containing a set of Calc functions to use in other applications.
+Libraries containing a set of Calc functions to use in other
+applications.
 
 %description static -l pl
-Biblioteki zawieraj±ce komplet funkcji Calca do wykorzystania we w³asnych
-programach.
+Biblioteki zawieraj±ce komplet funkcji Calca do wykorzystania we
+w³asnych programach.
 
 %prep
 %setup  -q
@@ -109,4 +112,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc sample/*
 
 %files static
-%attr(644,root,root) %{_libdir}/*
+%defattr(644,root,root,755)
+%{_libdir}/*
