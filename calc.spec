@@ -1,13 +1,14 @@
 Summary:	Arbitrary precision calculator
 Summary(pl):	Kalkulator operuj±cy na liczbach z dowoln± dok³adno¶ci±
 Name:		calc
-Version:	2.11.5t3
-Release:	4
+Version:	2.11.8
+Release:	0.99
 License:	LGPL
 Group:		Applications/Math
-Source0:	ftp://ftp.uu.net/pub/calc/%{name}-%{version}.tar.gz
-# Source0-md5:	792349fd4c11a4d51cd5469bad9f262a
+Source0:	http://www.isthe.com/chongo/src/calc/%{name}-%{version}.tar.gz
+# Source0-md5:	c08bf5febdc0b920cf51deab6ede2d0e
 Source1:	%{name}.desktop
+Patch1:		%{name}-Makefile.patch
 BuildRequires:	readline-devel >= 4.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -54,9 +55,9 @@ w³asnych programach.
 
 %prep
 %setup  -q
-
+%patch1 -p1
 %build
-%{__make} CFLAGS="%{rpmcflags}" \
+C_FLAGS="%{rpmcflags}" %{__make} \
 	USE_READLINE=-DUSE_READLINE \
 	READLINE_LIB="-lreadline -lhistory" \
 	READLINE_INCLUDE=%{_includedir} \
@@ -85,7 +86,7 @@ install -d $RPM_BUILD_ROOT%{_datadir}/calc/{cscript,custom,help} \
 	CUSTOMHELPDIR=$RPM_BUILD_ROOT%{_datadir}/calc/custhelp \
 	SCRIPTDIR=$RPM_BUILD_ROOT%{_datadir}/calc/cscript
 
-mv -f $RPM_BUILD_ROOT%{_datadir}/calc{/,/custom}/*.a $RPM_BUILD_ROOT%{_libdir}
+mv -f {./,./custom}/*.a $RPM_BUILD_ROOT%{_libdir}
 mv -f cal/README README-cal
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Scientific/Numerics/%{name}.desktop
