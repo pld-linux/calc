@@ -1,0 +1,14 @@
+diff -Naur calc-2.11.8.orig/Makefile calc-2.11.8/Makefile
+--- calc-2.11.8.orig/Makefile	Thu Jun 12 22:48:13 2003
++++ calc-2.11.8/Makefile	Thu Jun 12 22:52:20 2003
+@@ -989,8 +989,8 @@
+ CCOPT= ${DEBUG} ${NO_SHARED}
+ CCMISC=
+ #
+-CFLAGS= -DCALC_SRC ${CCWARN} ${CCOPT} ${CCMISC}
+-ICFLAGS= -DCALC_SRC ${CCWARN} ${CCMISC}
++CFLAGS= ${C_FLAGS} -DCALC_SRC ${CCWARN} ${CCOPT} ${CCMISC}
++ICFLAGS= ${C_FLAGS} -DCALC_SRC ${CCWARN} ${CCMISC}
+ #
+ LDFLAGS= ${NO_SHARED} ${LD_NO_SHARED}
+ ILDFLAGS=
