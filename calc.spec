@@ -1,8 +1,8 @@
 Summary:	Arbitrary precision calculator
 Summary(pl):	Kalkulator operuj±cy na liczbach z dowoln± dok³adno¶ci±
 Name:		calc
-Version:	2.11.1t3.0
-Release:	2
+Version:	2.11.2t1.0
+Release:	1
 License:	GPL
 Group:		Applications/Math
 Group(pl):	Aplikacje/Matematyczne
@@ -88,8 +88,8 @@ install -d $RPM_BUILD_ROOT%{_datadir}/calc/{cscript,custom,help} \
 	CUSTOMHELPDIR=$RPM_BUILD_ROOT%{_datadir}/calc/custhelp \
 	SCRIPTDIR=$RPM_BUILD_ROOT%{_datadir}/calc/cscript
 
-mv $RPM_BUILD_ROOT%{_datadir}/calc{/,/custom}/*.a $RPM_BUILD_ROOT%{_libdir}
-mv cal/README README-cal
+mv -f $RPM_BUILD_ROOT%{_datadir}/calc{/,/custom}/*.a $RPM_BUILD_ROOT%{_libdir}
+mv -f cal/README README-cal
 
 rm -f $RPM_BUILD_ROOT%{_datadir}/calc/README
 
