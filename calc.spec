@@ -2,13 +2,12 @@ Summary:	Arbitrary precision calculator
 Summary(pl):	Kalkulator operuj±cy na liczbach z dowoln± dok³adno¶ci±
 Name:		calc
 Version:	2.11.8
-Release:	0.99
+Release:	1
 License:	LGPL
 Group:		Applications/Math
 Source0:	http://www.isthe.com/chongo/src/calc/%{name}-%{version}.tar.gz
 # Source0-md5:	c08bf5febdc0b920cf51deab6ede2d0e
 Source1:	%{name}.desktop
-Patch1:		%{name}-Makefile.patch
 BuildRequires:	readline-devel >= 4.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -26,48 +25,34 @@ samego programu do³±czony jest bogaty zestaw funkcji bibliotecznych -
 matematycznych, programistycznych i funkcji wej¶cia/wyj¶cia
 
 %package devel
-Summary:	Calc header files
-Summary(pl):	Pliki nag³ówkowe Calca
+Summary:	Calc header files and static libraries
+Summary(pl):	Pliki nag³ówkowe i biblioteki statyczne Calca
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+# only static libraries now
+# to be changed after switching to shared lib
+#Requires:	%{name} = %{version}
+Obsoletes:	calc-static
 
 %description devel
-These header files are neccessary to build programs using Calc math
-libraries.
+These header files and static libraries are neccessary to build
+programs using Calc math libraries. These libraries contain a set of
+Calc functions to use in other applications.
 
 %description devel -l pl
-Te pliki nag³ówkowe s± niezbêdne przy budowaniu programów
-wykorzystuj±cych biblioteki matematyczne Calca.
-
-%package static
-Summary:	Calc static libraries
-Summary(pl):	Biblioteki statyczne Calca
-Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
-
-%description static
-Libraries containing a set of Calc functions to use in other
-applications.
-
-%description static -l pl
-Biblioteki zawieraj±ce komplet funkcji Calca do wykorzystania we
-w³asnych programach.
+Te pliki nag³ówkowe i biblioteki statyczne s± niezbêdne przy budowaniu
+programów wykorzystuj±cych biblioteki matematyczne Calca. Biblioteki
+te zawieraj±ce zbiór funkcji Calca do wykorzystania we w³asnych
+programach.
 
 %prep
-%setup  -q
-%patch1 -p1
+%setup -q
+
 %build
-C_FLAGS="%{rpmcflags}" %{__make} \
+%{__make} \
+	DEBUG="%{rpmcflags}" \
 	USE_READLINE=-DUSE_READLINE \
 	READLINE_LIB="-lreadline -lhistory" \
 	READLINE_INCLUDE=%{_includedir} \
-	BINDIR=%{_bindir} \
-	TOPDIR=%{_datadir} \
-	INCDIR=%{_includedir} \
-	MANDIR=%{_mandir}/man1 \
-	HELPDIR=%{_datadir}/calc/help \
-	CUSTOMLIBDIR=%{_datadir}/calc/custom \
-	CUSTOMHELPDIR=%{_datadir}/calc/custhelp \
 	SCRIPTDIR=%{_datadir}/calc/cscript
 
 %install
@@ -77,17 +62,11 @@ install -d $RPM_BUILD_ROOT%{_datadir}/calc/{cscript,custom,help} \
 	$RPM_BUILD_ROOT{%{_bindir},%{_applnkdir}/Scientific/Numerics}
 
 %{__make} install \
-	BINDIR=$RPM_BUILD_ROOT%{_bindir} \
-	TOPDIR=$RPM_BUILD_ROOT%{_datadir} \
-	INCDIR=$RPM_BUILD_ROOT%{_includedir} \
-	MANDIR=$RPM_BUILD_ROOT%{_mandir}/man1 \
-	HELPDIR=$RPM_BUILD_ROOT%{_datadir}/calc/help \
-	CUSTOMLIBDIR=$RPM_BUILD_ROOT%{_datadir}/calc/custom \
-	CUSTOMHELPDIR=$RPM_BUILD_ROOT%{_datadir}/calc/custhelp \
-	SCRIPTDIR=$RPM_BUILD_ROOT%{_datadir}/calc/cscript
+	T=$RPM_BUILD_ROOT \
+	SCRIPTDIR=%{_datadir}/calc/cscript
 
-mv -f {./,./custom}/*.a $RPM_BUILD_ROOT%{_libdir}
-mv -f cal/README README-cal
+mv -f $RPM_BUILD_ROOT%{_datadir}/calc/custom/libcustcalc.a $RPM_BUILD_ROOT%{_libdir}
+mv -f cal/README README.cal
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Scientific/Numerics/%{name}.desktop
 
@@ -101,6 +80,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+# COPYING is not just LGPL text, only some explanations
+%doc BUGS CHANGES COPYING README README.cal
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/calc
 %{_mandir}/man*/*
@@ -108,9 +89,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc BUGS CHANGES README README-cal LIBRARY sample/README_SAMPLE
-%{_includedir}/*
-
-%files static
-%defattr(644,root,root,755)
-%{_libdir}/*
+%doc LIBRARY sample/README_SAMPLE
+%{_libdir}/lib*.a
+%{_includedir}/calc
