@@ -59,7 +59,7 @@ w³asnych programach.
 %setup  -q
 
 %build
-make CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
+%{__make} CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 	USE_READLINE=-DUSE_READLINE \
 	READLINE_LIB="-lreadline -lhistory" \
 	READLINE_INCLUDE=%{_includedir} \
@@ -78,7 +78,7 @@ install -d $RPM_BUILD_ROOT%{_datadir}/calc/{cscript,custom,help} \
 	$RPM_BUILD_ROOT{%{_includedir},%{_mandir}/man1,%{_libdir}} \
 	$RPM_BUILD_ROOT%{_bindir}
 
-make install \
+%{__make} install \
 	BINDIR=$RPM_BUILD_ROOT%{_bindir} \
 	TOPDIR=$RPM_BUILD_ROOT%{_datadir} \
 	INCDIR=$RPM_BUILD_ROOT%{_includedir} \
