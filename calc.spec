@@ -2,12 +2,13 @@ Summary:	Arbitrary precision calculator
 Summary(pl):	Kalkulator operuj±cy na liczbach z dowoln± dok³adno¶ci±
 Name:		calc
 Version:	2.11.2t1.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Math
+Group(de):	Applikationen/Mathematik
 Group(pl):	Aplikacje/Matematyczne
 Source0:	ftp://ftp.uu.net/pub/calc/%{name}-%{version}.tar.gz
-BuildRequires:	readline-devel >= 4.1
+BuildRequires:	readline-devel >= 4.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -27,6 +28,7 @@ matematycznych, programistycznych i funkcji wej¶cia/wyj¶cia
 Summary:	Calc header files
 Summary(pl):	Pliki nag³ówkowe Calca
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	calc = %{version}
@@ -43,6 +45,7 @@ wykorzystuj±cych biblioteki matematyczne Calca.
 Summary:	Calc static libraries
 Summary(pl):	Biblioteki statyczne Calca
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
@@ -59,7 +62,7 @@ w³asnych programach.
 %setup  -q
 
 %build
-%{__make} CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
+%{__make} CFLAGS="%{rpmcflags}" \
 	USE_READLINE=-DUSE_READLINE \
 	READLINE_LIB="-lreadline -lhistory" \
 	READLINE_INCLUDE=%{_includedir} \
@@ -93,8 +96,7 @@ mv -f cal/README README-cal
 
 rm -f $RPM_BUILD_ROOT%{_datadir}/calc/README
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man*/* \
-	BUGS CHANGES README README-cal LIBRARY sample/README_SAMPLE
+gzip -9nf BUGS CHANGES README README-cal LIBRARY sample/README_SAMPLE
 
 %clean 
 rm -rf $RPM_BUILD_ROOT
