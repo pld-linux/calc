@@ -2,7 +2,7 @@ Summary:	Arbitrary precision calculator
 Summary(pl):	Kalkulator operuj±cy na liczbach z dowoln± dok³adno¶ci±
 Name:		calc
 Version:	2.11.5t3
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Applications/Math
 Source0:	ftp://ftp.uu.net/pub/calc/%{name}-%{version}.tar.gz
@@ -91,21 +91,19 @@ rm -f $RPM_BUILD_ROOT%{_datadir}/calc/README
 find $RPM_BUILD_ROOT%{_datadir}/calc -type f | \
 	xargs perl -pi -e 's|#!/usr/local/bin/calc|#!%{_bindir}/calc|'
 
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/calc
 %{_mandir}/man*/*
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/*
 %doc BUGS CHANGES README README-cal LIBRARY sample/README_SAMPLE
+%{_includedir}/*
 
 %files static
 %defattr(644,root,root,755)
