@@ -7,6 +7,7 @@ License:	LGPL
 Group:		Applications/Math
 Source0:	http://www.isthe.com/chongo/src/calc/%{name}-%{version}.tar.gz
 # Source0-md5:	d94efca11c686d9e7db1409d0c90483f
+URL:		http://www.isthe.com/chongo/tech/comp/calc
 Source1:	%{name}.desktop
 BuildRequires:	readline-devel >= 4.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
