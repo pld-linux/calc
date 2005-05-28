@@ -9,6 +9,7 @@ Source0:	http://www.isthe.com/chongo/src/calc/%{name}-%{version}.tar.gz
 # Source0-md5:	b23466c8f490e1fa7f04b0af22da1ad1
 Source1:	%{name}.desktop
 URL:		http://www.isthe.com/chongo/tech/comp/calc/
+BuildRequires:	perl-base
 BuildRequires:	readline-devel >= 4.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
