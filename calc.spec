@@ -1,15 +1,15 @@
 Summary:	Arbitrary precision calculator
 Summary(pl):	Kalkulator operuj±cy na liczbach z dowoln± dok³adno¶ci±
 Name:		calc
-Version:	2.12.0.6
+Version:	2.12.0.8
 Release:	1
 License:	LGPL
 Group:		Applications/Math
 Source0:	http://www.isthe.com/chongo/src/calc/%{name}-%{version}.tar.gz
-# Source0-md5:	b2ad1cecf5b166829ada59b4bbfc51ee
+# Source0-md5:	22e9f4c4716cbb95320da2ccf51a21d2
 Source1:	%{name}.desktop
 URL:		http://www.isthe.com/chongo/tech/comp/calc/
-BuildRequires:	perl-base
+BuildRequires:	sed >= 4.0
 BuildRequires:	readline-devel >= 4.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -76,7 +76,7 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/%{name}.desktop
 rm -f $RPM_BUILD_ROOT%{_datadir}/calc/README
 
 find $RPM_BUILD_ROOT%{_datadir}/calc -type f | \
-	xargs perl -pi -e 's|#!/usr/local/bin/calc|#!%{_bindir}/calc|'
+       xargs %{__sed} -i -e 's|#!/usr/local/bin/calc|#!%{_bindir}/calc|g'
 
 %clean
 rm -rf $RPM_BUILD_ROOT
