@@ -1,12 +1,12 @@
 Summary:	Arbitrary precision calculator
 Summary(pl):	Kalkulator operuj±cy na liczbach z dowoln± dok³adno¶ci±
 Name:		calc
-Version:	2.12.0.8
+Version:	2.12.1.5
 Release:	1
 License:	LGPL
 Group:		Applications/Math
 Source0:	http://www.isthe.com/chongo/src/calc/%{name}-%{version}.tar.gz
-# Source0-md5:	22e9f4c4716cbb95320da2ccf51a21d2
+# Source0-md5:	75bc9c6dfaad2d1f6dce901bdfbaa92c
 Source1:	%{name}.desktop
 URL:		http://www.isthe.com/chongo/tech/comp/calc/
 BuildRequires:	sed >= 4.0
