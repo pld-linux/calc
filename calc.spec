@@ -88,7 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/calc
 %{_mandir}/man*/*
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop
 
 %files devel
 %defattr(644,root,root,755)
