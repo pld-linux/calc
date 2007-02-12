@@ -1,5 +1,5 @@
 Summary:	Arbitrary precision calculator
-Summary(pl):	Kalkulator operuj±cy na liczbach z dowoln± dok³adno¶ci±
+Summary(pl.UTF-8):   Kalkulator operujÄ…cy na liczbach z dowolnÄ… dokÅ‚adnoÅ›ciÄ…
 Name:		calc
 Version:	2.12.1.11
 Release:	1
@@ -19,16 +19,16 @@ language. Calc is useful as a calculator, an algorithm prototyped and
 as a mathematical research tool. It comes with a rich set of
 mathematical, programmatic and stdio functions.
 
-%description -l pl
-Calc jest systemem arytmetycznym o nieograniczonej dok³adno¶ci,
-u¿ywaj±cym jêzyka podobnego do C. Calc jest przydatny jako kalkulator,
-narzêdzie do testowania algorytmów i do badañ matematycznych. Do
-samego programu do³±czony jest bogaty zestaw funkcji bibliotecznych -
-matematycznych, programistycznych i funkcji wej¶cia/wyj¶cia
+%description -l pl.UTF-8
+Calc jest systemem arytmetycznym o nieograniczonej dokÅ‚adnoÅ›ci,
+uÅ¼ywajÄ…cym jÄ™zyka podobnego do C. Calc jest przydatny jako kalkulator,
+narzÄ™dzie do testowania algorytmÃ³w i do badaÅ„ matematycznych. Do
+samego programu doÅ‚Ä…czony jest bogaty zestaw funkcji bibliotecznych -
+matematycznych, programistycznych i funkcji wejÅ›cia/wyjÅ›cia
 
 %package devel
 Summary:	Calc header files and static libraries
-Summary(pl):	Pliki nag³ówkowe i biblioteki statyczne Calca
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe i biblioteki statyczne Calca
 Group:		Development/Libraries
 # only static libraries now
 # to be changed after switching to shared lib
@@ -40,10 +40,10 @@ These header files and static libraries are neccessary to build
 programs using Calc math libraries. These libraries contain a set of
 Calc functions to use in other applications.
 
-%description devel -l pl
-Te pliki nag³ówkowe i biblioteki statyczne s± niezbêdne przy budowaniu
-programów wykorzystuj±cych biblioteki matematyczne Calca. Biblioteki
-te zawieraj±ce zbiór funkcji Calca do wykorzystania we w³asnych
+%description devel -l pl.UTF-8
+Te pliki nagÅ‚Ã³wkowe i biblioteki statyczne sÄ… niezbÄ™dne przy budowaniu
+programÃ³w wykorzystujÄ…cych biblioteki matematyczne Calca. Biblioteki
+te zawierajÄ…ce zbiÃ³r funkcji Calca do wykorzystania we wÅ‚asnych
 programach.
 
 %prep
