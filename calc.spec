@@ -1,5 +1,5 @@
 Summary:	Arbitrary precision calculator
-Summary(pl.UTF-8):   Kalkulator operujący na liczbach z dowolną dokładnością
+Summary(pl.UTF-8):	Kalkulator operujący na liczbach z dowolną dokładnością
 Name:		calc
 Version:	2.12.1.11
 Release:	1
@@ -28,7 +28,7 @@ matematycznych, programistycznych i funkcji wejścia/wyjścia
 
 %package devel
 Summary:	Calc header files and static libraries
-Summary(pl.UTF-8):   Pliki nagłówkowe i biblioteki statyczne Calca
+Summary(pl.UTF-8):	Pliki nagłówkowe i biblioteki statyczne Calca
 Group:		Development/Libraries
 # only static libraries now
 # to be changed after switching to shared lib
