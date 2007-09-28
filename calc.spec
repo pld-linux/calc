@@ -1,12 +1,12 @@
 Summary:	Arbitrary precision calculator
 Summary(pl.UTF-8):	Kalkulator operujący na liczbach z dowolną dokładnością
 Name:		calc
-Version:	2.12.1.13
+Version:	2.12.2.1
 Release:	1
 License:	LGPL
 Group:		Applications/Math
 Source0:	http://www.isthe.com/chongo/src/calc/%{name}-%{version}.tar.gz
-# Source0-md5:	a3d84dbf5eaeb489e10bebf689316f28
+# Source0-md5:	c399c7b7d71d756c5eaef77e414a732b
 Source1:	%{name}.desktop
 URL:		http://www.isthe.com/chongo/tech/comp/calc/
 BuildRequires:	sed >= 4.0
@@ -30,9 +30,7 @@ matematycznych, programistycznych i funkcji wejścia/wyjścia
 Summary:	Calc header files and static libraries
 Summary(pl.UTF-8):	Pliki nagłówkowe i biblioteki statyczne Calca
 Group:		Development/Libraries
-# only static libraries now
-# to be changed after switching to shared lib
-#Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}
 Obsoletes:	calc-static
 
 %description devel
@@ -68,9 +66,6 @@ install -d $RPM_BUILD_ROOT%{_datadir}/calc/{cscript,custom,help} \
 	T=$RPM_BUILD_ROOT \
 	SCRIPTDIR=%{_datadir}/calc/cscript
 
-mv -f $RPM_BUILD_ROOT%{_datadir}/calc/custom/libcustcalc.a $RPM_BUILD_ROOT%{_libdir}
-mv -f cal/README README.cal
-
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/%{name}.desktop
 
 rm -f $RPM_BUILD_ROOT%{_datadir}/calc/README
@@ -87,11 +82,12 @@ rm -rf $RPM_BUILD_ROOT
 %doc BUGS CHANGES COPYING README
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/calc
-%{_mandir}/man*/*
 %{_desktopdir}/*.desktop
+%{_libdir}/lib*.so.*.*
+%{_mandir}/man1/*.1*
 
 %files devel
 %defattr(644,root,root,755)
 %doc LIBRARY
-%{_libdir}/lib*.a
+%{_libdir}/lib*.so
 %{_includedir}/calc
