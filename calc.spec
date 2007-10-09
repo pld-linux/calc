@@ -74,6 +74,9 @@ find $RPM_BUILD_ROOT%{_datadir}/calc -type f | \
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
+
 %files
 %defattr(644,root,root,755)
 # COPYING is not just LGPL text, only some explanations
