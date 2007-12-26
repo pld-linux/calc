@@ -7,5 +7,4 @@ Exec=calc
 Terminal=true
 Categories=ConsoleOnly;Education;Science;Math;
 Type=Application
-Encoding=UTF-8
 # vi: encoding=utf-8
