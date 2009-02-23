@@ -5,7 +5,7 @@ Summary:	Arbitrary precision calculator
 Summary(pl.UTF-8):	Kalkulator operujący na liczbach z dowolną dokładnością
 Name:		calc
 Version:	2.12.4.0
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		Applications/Math
 Source0:	http://www.isthe.com/chongo/src/calc/%{name}-%{version}.tar.bz2
