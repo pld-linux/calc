@@ -62,7 +62,7 @@ programach.
 	READLINE_INCLUDE=%{_includedir} \
 	SCRIPTDIR=%{_datadir}/calc/cscript
 
-%{?with_tests:%{__make} tests}
+%{?with_tests:%{__make} check}
 
 %install
 rm -rf $RPM_BUILD_ROOT
