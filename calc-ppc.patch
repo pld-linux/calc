@@ -1,0 +1,13 @@
+diff -ur calc-2.12.4.0/zmath.h calc-2.12.4.0.new/zmath.h
+--- calc-2.12.4.0/zmath.h	2007-09-02 00:01:25.000000000 +0200
++++ calc-2.12.4.0.new/zmath.h	2009-03-08 11:30:37.490681462 +0100
+@@ -86,7 +86,7 @@
+ typedef SB64 SFULL;			/* signed FULL */
+ 
+ #define SWAP_HALF_IN_B64(dest, src)	SWAP_B32_IN_B64(dest, src)
+-#define SWAP_HALF_IN_B32(dest, src)	(*(dest) = *(src))
++#define SWAP_HALF_IN_B32(dest, src)	(*((USB32*)dest) = *((USB32*)src))
+ #define SWAP_HALF_IN_FULL(dest, src)	SWAP_B32_IN_B64(dest, src)
+ #define SWAP_HALF_IN_HASH(dest, src)	SWAP_B16_IN_HASH(dest, src)
+ #define SWAP_HALF_IN_FLAG(dest, src)	SWAP_B16_IN_FLAG(dest, src)
+Tylko w calc-2.12.4.0.new/: zmath.h~
