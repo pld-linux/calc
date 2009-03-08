@@ -1,6 +1,7 @@
 #
 # TODO: some unpackaged libs, should we pack them as ghosts?
 #
+%bcond_without	tests
 Summary:	Arbitrary precision calculator
 Summary(pl.UTF-8):	Kalkulator operujący na liczbach z dowolną dokładnością
 Name:		calc
@@ -60,6 +61,8 @@ programach.
 	READLINE_LIB="-lreadline -lhistory" \
 	READLINE_INCLUDE=%{_includedir} \
 	SCRIPTDIR=%{_datadir}/calc/cscript
+
+%{?with_tests:%{__make} tests}
 
 %install
 rm -rf $RPM_BUILD_ROOT
