@@ -1,7 +1,7 @@
 #
-# TODO: some unpackaged libs, should we pack them as ghosts?
-#
-%bcond_without	tests
+# Conditional build:
+%bcond_without	tests	# unit tests
+
 Summary:	Arbitrary precision calculator
 Summary(pl.UTF-8):	Kalkulator operujący na liczbach z dowolną dokładnością
 Name:		calc
@@ -18,6 +18,7 @@ BuildRequires:	readline-devel >= 4.2
 BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+# libraries have circular dependencies
 %define		no_install_post_check_so	1
 
 %description
@@ -76,7 +77,7 @@ rm -rf $RPM_BUILD_ROOT
 
 install -D %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/%{name}.desktop
 
-rm -f $RPM_BUILD_ROOT%{_datadir}/calc/README
+%{__rm} $RPM_BUILD_ROOT%{_datadir}/calc/README
 
 find $RPM_BUILD_ROOT%{_datadir}/calc -type f | \
        xargs %{__sed} -i -e 's|#!/usr/local/bin/calc|#!%{_bindir}/calc|g'
