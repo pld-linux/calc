@@ -5,12 +5,12 @@
 Summary:	Arbitrary precision calculator
 Summary(pl.UTF-8):	Kalkulator operujący na liczbach z dowolną dokładnością
 Name:		calc
-Version:	2.14.1.6
+Version:	2.15.0.1
 Release:	1
 License:	LGPL v2.1+
 Group:		Applications/Math
 Source0:	http://www.isthe.com/chongo/src/calc/%{name}-%{version}.tar.bz2
-# Source0-md5:	5013f079a3e3037c37ee3c8d74bd58bf
+# Source0-md5:	d2ecc9f0eaa46687a5ff5ae32b5d0d47
 Source1:	%{name}.desktop
 Patch0:		%{name}-ppc.patch
 URL:		http://www.isthe.com/chongo/tech/comp/calc/
@@ -39,7 +39,7 @@ Summary:	Calc header files and static libraries
 Summary(pl.UTF-8):	Pliki nagłówkowe i biblioteki statyczne Calca
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Obsoletes:	calc-static
+Obsoletes:	calc-static < 2.11.8
 
 %description devel
 These header files and static libraries are neccessary to build
@@ -81,6 +81,9 @@ install -D %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/%{name}.desktop
 
 find $RPM_BUILD_ROOT%{_datadir}/calc -type f | \
        xargs %{__sed} -i -e 's|#!/usr/local/bin/calc|#!%{_bindir}/calc|g'
+
+# redundant symlinks
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/lib*.so.%(echo %{version} | cut -d. -f1-3)
 
 %clean
 rm -rf $RPM_BUILD_ROOT
