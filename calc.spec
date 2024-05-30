@@ -5,14 +5,13 @@
 Summary:	Arbitrary precision calculator
 Summary(pl.UTF-8):	Kalkulator operujący na liczbach z dowolną dokładnością
 Name:		calc
-Version:	2.15.0.2
+Version:	2.15.0.7
 Release:	1
 License:	LGPL v2.1+
 Group:		Applications/Math
 Source0:	http://www.isthe.com/chongo/src/calc/%{name}-%{version}.tar.bz2
-# Source0-md5:	232590e366c3f51de993d99252d9ad34
+# Source0-md5:	af55da3b29128f1f8d4ce4412cbf09fd
 Source1:	%{name}.desktop
-Patch0:		%{name}-ppc.patch
 URL:		http://www.isthe.com/chongo/tech/comp/calc/
 BuildRequires:	readline-devel >= 4.2
 BuildRequires:	sed >= 4.0
@@ -54,7 +53,6 @@ programach.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__make} -j1 \
